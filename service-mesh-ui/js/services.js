@@ -49,7 +49,7 @@
             var newCart = [];
 
             cart.forEach(function(prod, key) {
-                if (prod.productCode != product.productCode) {
+                if (prod.productCode == product.productCode) {
                     delete cart[key];
                 } else {
                     newCart.push(prod);
@@ -86,7 +86,6 @@
             }
 
             $("#lblCartCount")[0].innerHTML = number;
-            //$("#lblCartCount")[0].innerHTML = cart.length || 0;
         }
 
         var emptyCart = function() {
@@ -115,8 +114,7 @@
             };
 
             return $http({
-                // url: "http://52.168.165.35:8080/orders",
-                url: "http://52.224.219.48:8080/orders",
+                url: ORDER_URL + "/orders",
                 method: "POST",
                 contentType: 'application/json',
                 data: JSON.stringify(postBody)
@@ -181,8 +179,7 @@
             };
 
             return $http({
-                // url: "http://13.92.189.60:8080/processPayment",
-                url: "http://40.114.70.224:8080/processPayment",
+                url: PAYMENT_URL + "/processPayment",
                 method: "POST",
                 contentType: 'application/json',
                 data: JSON.stringify(postBody)
@@ -200,8 +197,7 @@
 
         var getUserFromSalesforce = function(email) {
             return $http({
-                // url: "http://40.85.177.104:8080/customers/1",
-                url: "http://52.168.30.92:8080/customers/1",
+                url: CUSTOMER_URL + "/customers/1",
                 method: "GET",
                 dataType: "json"
             }).then(function(resp) {
