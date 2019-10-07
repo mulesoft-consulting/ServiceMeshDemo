@@ -1,0 +1,44 @@
+<div class="container confirmation" ng-controller="OrderCtrl">
+    <div class="pt-50">
+    	<h1 class="mt-0">Order Placed!</h1>
+    	<h4 class="text-color">Order Number: 123456789</h4>
+    	<hr />
+    	<p>We're processing your order. A confirmation was sent to <strong>{{email}}</strong>. Please find the order details below.</p>
+    </div>
+    <div class="mt-30">
+    	<div class="cart col-md-7">
+    		<h2 class="text-color">Order # 123456789</h2>
+    		<div class="row">
+    			<div class="cold-md-6 col-sm-6">
+	    			<h3>Order Date</h3>
+	    			Order Date: {{date}}
+	    			<h3>Delivered For</h3>
+		    		<p>{{name}}</p>
+	    		</div>
+	    		<div class="cold-md-6 col-sm-6">
+		    		<h3>Delivery Address</h3>
+		    		<p>
+		    			{{address}}<br />
+		                {{city}} {{state}} {{zip}}<br />
+		                {{country}}
+		    		</p>
+		    	</div>
+		    </div>
+    		<br />
+    		<h3>Order Summary</h3>
+	        <div class="cart-item" ng-repeat="item in itemsInOrder track by $index" ng-controller="OrderCartCtrl" ng-init="init(item)">
+	            <img class="row-item" src="{{imgUrl}}">
+	            <div class="cart-item-text">
+	                <div class="cart-item-name">{{description}}</div>
+	                <div class="cart-item-qty text-small">Qty: {{quantity}}</div>
+	            </div>
+	            <div class="cart-item-price text-light text-small">${{msrp}}</div>
+	        </div>
+	        <div class="cart-total-row">
+	            <div class="">Total</div>
+	            <div class="">${{total}}</div>
+	        </div>
+	    </div>
+	    <div class="col-md-3"></div>
+    </div>
+</div>

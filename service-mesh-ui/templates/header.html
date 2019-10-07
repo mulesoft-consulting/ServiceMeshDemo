@@ -1,0 +1,27 @@
+<nav class="navbar navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/">MuleForce</a>
+        </div>
+        <div ng-controller='NavCtrl'>
+            <div class="nav navbar-nav navbar-right" ng-class="{'active': $route.current.activePage == 'account'}">
+                <a href="#/account">Cart
+                    <i class="fa">&#xf07a;</i>
+                    <span class='badge badge-warning' id='lblCartCount'> 0 </span>
+                </a>
+                <div id="addedToCart">
+                    <span class="text-light">Item added to cart </span>
+                    <div class="row">
+                        <img class="col-md-5 col-sm-5 col-xs-5" id="addedProdImg"/>
+                        <div>
+                            <div id="addedProdDesc"></div>
+                            <div id="addedProdPrice" class="text-light"></div>
+                            <div id="addedProdQty" class="text-small">Qty: <span></span></div>
+                        </div>
+                    </div>
+                    <a href="/#account" class="btn btn-solid">Checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

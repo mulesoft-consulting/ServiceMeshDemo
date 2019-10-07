@@ -1,0 +1,26 @@
+<div class="container" ng-controller="ProductCtrl" ng-init="getProduct()">
+    <div class="row product">
+        <div class="col-md-5 col-sm-5 col-xs-12 mb-30">
+            <img class="img-responsive" src="{{imgUrl}}">
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <h2>{{description}}</h2>
+            <div class="product-price text-light">{{msrp | currency}}</div>
+            <hr />
+            <!--<h4 class="product-count">There are {{count}} left!</h4>-->
+            <div class="product-desc">{{addlDesc}}</div>
+            <br />
+            <div>Size available: {{size}}</div>
+            <div>Country of Origin: {{countryOfOrigin}}</div>
+            <div>Product Code: {{productCode}}</div>
+            <br />
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12" ng-controller="ReserveCtrl">
+            <button type="button" class="btn btn-info" data-toggle="collapse" id="addToCartBtn" ng-click="submit()">Add to Cart</button>
+            <p class="success-order alert">
+                Product added to cart.
+            </p>
+            <p class="error-order alert">Oops! Error submitting your request.</p>
+        </div>
+    </div>
+</div>

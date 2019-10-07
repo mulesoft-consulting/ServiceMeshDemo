@@ -1,0 +1,161 @@
+<div class="container">
+    <div class="col-md-5 col-sm-6">
+        <div class="cart-list" ng-controller="CartListCtrl">
+            <!-- <div class="container"> -->
+            <div class="row cart">
+                <h2>Cart</h2>
+                <div class="cart-item" ng-show="quantity>0" ng-repeat="item in itemsInCart track by $index" ng-controller="CartCtrl" ng-init="init(item)">
+                    <img class="row-item" src="{{imgUrl}}">
+                    <div class="cart-item-text">
+                        <div class="cart-item-name">{{description}}</div>
+                        <div class="cart-item-qty text-small">Qty: {{quantity}}</div>
+                    </div>
+                    <div class="cart-item-price text-light text-small">${{msrp}}</div>
+                    <a class="text-small" id="remove" ng-click="removeFromCart(item)">&#x2715;</a>
+                </div>
+                <div class="cart-total-row" ng-show="total>0">
+                    <div class="">Total</div>
+                    <div class="">${{total}}</div>
+                </div>
+                <div ng-show="total<=0">Your cart is empty</div>
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5 col-sm-6">
+        <div class="row pt-50">
+            <h2>Checkout</h2>
+            <div class="" ng-controller="AccountCtrl">
+                <div id="retrieve-form" class="collapse in">
+                    <h3><span class="step">1</span>Enter Your Email</h3>
+                    <form novalidate name='retrieveForm'>
+                        <label>Enter your email to retrieve your account</label>
+                        <input id="email" type="email" ng-model="user1.email" name="emailC" ng-init="user1.email='mruiz0@qq.com'">
+                        <span class="alert" ng-show="retrieveForm.emailC.$error.email">Not a valid e-mail address</span>
+                        <button class="btn" id="getEmail" ng-click="getUser(user1)">CONTINUE</button>
+                    </form>
+                </div>
+                <div id="edit-email">
+                    <h3><span class="step">1</span>Your Email</h3><a href="" id="edit-email-link" class="ml-10">Edit</a>
+                    <div>{{email}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="" ng-controller="AccountCtrl">
+                <div id="account-info" class="collapse in">
+                    <h3><span class="step">2</span>Your Address</h3>
+                    <form name='createForm'>
+                        <label>Name:</label>
+                        <input type="text" ng-model="name">
+                        <br>
+                        <label>Address:</label>
+                        <input type="text" ng-model="address">
+                        <br>
+                        <label>City:</label>
+                        <input type="text" ng-model="city">
+                        <br>
+                        <label>State:</label>
+                        <input type="text" ng-model="state">
+                        <br>
+                        <label>ZIP:</label>
+                        <input type="text" ng-model="zip">
+                        <br>
+                        <label>Country:</label>
+                        <input type="text" ng-model="country">
+                        <br>
+                        <label>Phone:</label>
+                        <input type="text" ng-model="phone">
+                        <br>
+                        <label>Email:</label>
+                        <input type="email" ng-model="email" name="emailD">
+                        <span ng-show="createForm.emailD.$error.email">Not a valid e-mail address</span>
+                        <div class="create-message alert" ng-bind="uuMessage">
+                        </div>
+                        <button type="submit" class="btn btn-secondary" id="edit-account-save" ng-click="">Save</button>
+                    </form>
+                </div>
+                <div id="edit-account">
+                    <h3><span class="step">2</span>Your Account</h3><a id="edit-account-link" href="" class="ml-10">Edit</a>
+                    <div>{{name}}</div>
+                    <div>
+                        {{address}}<br />
+                        {{city}} {{state}} {{zip}}<br />
+                        {{country}} <br/>
+                        {{phone}}
+                    </div>
+                </div>
+                <div id="account-msg">
+                    <span class="success-msg" id='userSuccessMsg' ng-show="status">Account Retrieval Success</span>
+                    <span class="failure-msg" id='userFailureMsg' ng-show="status==false">Account Retrieval Failed</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="" ng-controller="AccountCtrl">
+                <div id="payment-info" class="collapse in">
+                    <h3><span class="step">3</span>Payment Information</h3>
+                    <form novalidate name='paymentForm'>
+                        <label for="owner">Name</label>
+                        <input type="text" id="owner" ng-model="card.name" ng-init="card.name='Michelle Ruiz'" required>
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" id="cardNumber" ng-model="card.number" ng-init="card.number='4242 4242 4242 4242'"required>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Expiration Date</label>
+                                <select class="col-md-6" ng-model="card.month" ng-init="card.month='04'">
+                                    <option value="01">January</option>
+                                    <option value="02">February </option>
+                                    <option value="03">March</option>
+                                    <option value="04">April</option>
+                                    <option value="05">May</option>
+                                    <option value="06">June</option>
+                                    <option value="07">July</option>
+                                    <option value="08">August</option>
+                                    <option value="09">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                                <select class="col-md-5 ml-5" ng-model="card.year" ng-init="card.year='20'">
+                                    <option value="16"> 2016</option>
+                                    <option value="17"> 2017</option>
+                                    <option value="18"> 2018</option>
+                                    <option value="19"> 2019</option>
+                                    <option value="20"> 2020</option>
+                                    <option value="21"> 2021</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="cvv">CVV</label>
+                                <input type="number" id="cvv" ng-model="card.cvv" ng-init="card.cvv=259">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-default" id="verifyPayment" ng-click="authorizePayment(card)">Authorize Payment</button>
+                        <div class="alert" ng-show="invalid">Invalid payment information</div>
+                    </form>
+                </div>
+                <div id="edit-payment">
+                    <h3><span class="step">3</span>Payment Information</h3><a id="edit-payment-link" href="" class="ml-10">Edit</a>
+                    <div>{{name}}</div>
+                    <div>Card ending {{cardNumLast4}}</div>
+                    <br />
+                    <span class="success-msg" id='paySuccessMsg' ng-show="payStatus">Payment Authorization Success</span>
+                </div>
+                <div id="payment-msg">
+                    <span class="failure-msg" id='payFailureMsg' ng-show="payStatus==false">Payment Authorization Failed</span>
+                </div>
+            </div>
+            <div id="place-order-wrapper" ng-controller="CartListCtrl">
+                <button type="submit" class="btn btn-default" ng-disabled="total<=0" id="placeOrder" ng-click="placeOrder()">PLACE ORDER</button>
+                <div id="order-msg">
+                    <span class="success-msg" id='orderSuccessMsg' ng-show="orderStatus">Order Successfully Placed. Redirecting... </span>
+                    <span class="failure-msg" id='orderFailureMsg' ng-show="orderStatus==false">Order Failed to Create</span>
+                </div>
+                <div class="alert" ng-show="total<=0">Your cart is empty</div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

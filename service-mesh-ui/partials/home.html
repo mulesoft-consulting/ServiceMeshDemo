@@ -1,0 +1,22 @@
+<div class="hero">
+    <div class="container">
+        <div>
+            <div class="tagline">Now Available</div>
+            <h1>Our 2020 Collection</h1>
+            <p>Nothing makes a statement like a MuleForce tee. Shop our latest collection of awesome lifestyle gear.</p>
+        </div>
+    </div>
+</div>
+<div class="section product-list" ng-controller="ProductListCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-4 col-xs-6" ng-repeat="product in products" ng-controller="ProductCtrl" ng-init="init(product)" ng-click="addProduct(product)">
+                <a href="#/reserve">
+                    <img class="img-responsive img-home-portfolio" src="{{imgUrl}}" >
+                    <div class='product-description'>{{description}}</div>
+                    <div class='productprice text-light'>${{msrp}}</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
