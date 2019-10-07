@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: payment-app
-        image: docker.io/dfoley3118/payment-app:latest
+        image: docker.io/<replace_with_dockerhub_account>/payment-app:latest
         ports:
         - containerPort: 8080
 ---

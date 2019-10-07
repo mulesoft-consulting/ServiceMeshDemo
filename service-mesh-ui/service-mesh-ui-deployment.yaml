@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: service-mesh-ui
-        image: docker.io/dfoley3118/service-mesh-ui:latest
+        image: docker.io/<replace_with_dockerhub_account>/service-mesh-ui:latest
         ports:
         - containerPort: 3000
 ---
