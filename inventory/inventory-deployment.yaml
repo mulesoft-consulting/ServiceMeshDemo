@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: inventory-app
-        image: docker.io/dfoley3118/inventory-app:latest
+        image: docker.io/<replace_with_dockerhub_account>/inventory-app:latest
         ports:
         - containerPort: 8080
 ---
