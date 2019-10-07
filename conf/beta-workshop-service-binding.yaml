@@ -1,0 +1,56 @@
+# servicemesh-ui-anypoint-security.yaml
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceBinding
+metadata:
+  name: service-mesh-ui-anypoint-security
+  namespace: <replace_with_namespace>
+spec:
+  instanceRef:
+    name: <replace_with_namespace>-adapter
+  parameters:
+    # Note: apiId come from Autodiscovery Id  
+    apiId: <replace_with_apiId>
+    service: service-mesh-ui
+# customers-anypoint-security.yaml
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceBinding
+metadata:
+  name: customers-anypoint-security
+  namespace: <replace_with_namespace>
+spec:
+  instanceRef:
+    name: <replace_with_namespace>-adapter
+  parameters:
+    # Note: apiId come from Autodiscovery Id  
+    apiId: <replace_with_apiId>
+    service: customers
+---
+# payments-anypoint-security.yaml
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceBinding
+metadata:
+  name: payments-anypoint-security
+  namespace: <replace_with_namespace>
+spec:
+  instanceRef:
+    name: nto-payment-adapter
+  parameters:
+    # Note: apiId come from Autodiscovery Id  
+    apiId: <replace_with_apiId>
+    service: payments
+---
+# orders-anypoint-security.yaml
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceBinding
+metadata:
+  name: orders-anypoint-security
+  namespace: <replace_with_namespace>
+spec:
+  instanceRef:
+    name: nto-payment-adapter
+  parameters:
+    # Note: apiId come from Autodiscovery Id  
+    apiId: <replace_with_apiId>
+    service: orders
+    
+---
