@@ -33,7 +33,7 @@ metadata:
   namespace: <replace_with_namespace>
 spec:
   instanceRef:
-    name: nto-payment-adapter
+    name: <replace_with_namespace>-adapter
   parameters:
     # Note: apiId come from Autodiscovery Id  
     apiId: <replace_with_apiId>
@@ -47,7 +47,7 @@ metadata:
   namespace: <replace_with_namespace>
 spec:
   instanceRef:
-    name: nto-payment-adapter
+    name: <replace_with_namespace>-adapter
   parameters:
     # Note: apiId come from Autodiscovery Id  
     apiId: <replace_with_apiId>
