@@ -11,6 +11,22 @@ spec:
     # Note: apiId come from Autodiscovery Id  
     apiId: <replace_with_apiId>
     service: service-mesh-ui
+---
+# inventory-anypoint-security.yaml
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceBinding
+metadata:
+  name: inventory-anypoint-security
+  namespace: <replace_with_namespace>
+spec:
+  instanceRef:
+    name: <replace_with_namespace>-adapter
+  parameters:
+    # Note: apiId come from Autodiscovery Id  
+    apiId: <replace_with_apiId>
+    service: inventory
+    
+---
 # customers-anypoint-security.yaml
 apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceBinding
