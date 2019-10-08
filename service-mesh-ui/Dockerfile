@@ -15,4 +15,5 @@ EXPOSE 3000
 RUN npm install -g gulp
 
 VOLUME ["/app"]
-CMD ["gulp", "bundle", "-c", "http://customer-service:8080", "-o", "http://order-service:8080", "-p", "http://payment-service:8080"]
+
+CMD ["gulp", "bundle"]
