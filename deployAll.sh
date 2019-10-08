@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 #
-NAMESPACE=nto-payment-test
+NAMESPACE=nto-payment
 # Create the Istio adapter if it doesn’t exist:
 #
 if kubectl get namespace | grep -q '$NAMESPACE'; then

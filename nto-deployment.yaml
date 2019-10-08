@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       run: customer-app
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -41,7 +41,7 @@ spec:
   selector:
     matchLabels:
       run: order-app
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -76,7 +76,7 @@ spec:
   selector:
     matchLabels:
       run: payment-app
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -111,7 +111,7 @@ spec:
   selector:
     matchLabels:
       run: inventory-app
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -146,7 +146,7 @@ spec:
   selector:
     matchLabels:
       run: service-mesh-ui
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
