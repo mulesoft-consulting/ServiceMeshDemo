@@ -114,7 +114,7 @@
             };
 
             return $http({
-                url: ORDER_URL + "/orders",
+                url: "/orders",
                 method: "POST",
                 contentType: 'application/json',
                 data: JSON.stringify(postBody)
@@ -179,7 +179,7 @@
             };
 
             return $http({
-                url: PAYMENT_URL + "/processPayment",
+                url: "/processPayment",
                 method: "POST",
                 contentType: 'application/json',
                 data: JSON.stringify(postBody)
@@ -197,10 +197,11 @@
 
         var getUserFromSalesforce = function(email) {
             return $http({
-                url: CUSTOMER_URL + "/customers/1",
+                url: "/customers/1",
                 method: "GET",
                 dataType: "json"
             }).then(function(resp) {
+                console.log('resp is', resp);
                 var user = {
                     id: resp.data.id,
                     name: resp.data.name,

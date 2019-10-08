@@ -1,29 +1,11 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var header = require('gulp-header');
-var browserSync = require('browser-sync').create();
+var browserSync = require('browser-sync');
 var clean = require('gulp-clean');
-var argv = require('minimist')(process.argv.slice(2));
-var gls = require('gulp-live-server');
+var express = require('express')
+var nodemon = require('gulp-nodemon');
 
-
-console.log("CUSTOMER_URL is: ", argv.c);
-console.log("PAYMENT_URL is: ", argv.p);
-console.log("ORDER_URL is: ", argv.o);
-
-// gulp  bundle -c "http://52.168.30.92:8080" -o "http://52.224.219.48:8080" -p "http://40.114.70.224:8080"
-// gulp  bundle -c "http://localhost:8085" -o "http://localhost:8085" -p "http://localhost:8085"
-
-gulp.task('server', function() {
-    var server = gls('server.js');
-    server.start().then(function(result) {
-        console.log('Server exited with result:', result);
-        process.exit(result.code);
-    });
-
-    gulp.watch('server.js', server.start);
-});
-
+// gulp bundle 
 
 gulp.task('sass', function() {
     return gulp.src('scss/**/*.scss')
@@ -38,6 +20,7 @@ gulp.task('reload', function(done) {
 })
 
 gulp.task('watch', function() {
+    browserSync.create();
     browserSync.init({
         injectChanges: true,
         notify: false,
@@ -49,15 +32,19 @@ gulp.task('watch', function() {
     gulp.watch(['**/*.html', 'js/**/*.js'], gulp.series('reload'));
 })
 
-gulp.task('serve', function() {
-    browserSync.init({
-        injectChanges: true,
-        notify: false,
-        server: {
-            baseDir: "./dist"
-        }
+gulp.task('nodemon', function (cb) {
+    
+    var started = false;
+    
+    return nodemon({
+        script: 'server.js'
+    }).on('start', function () {
+        if (!started) {
+            cb();
+            started = true; 
+        } 
     });
-})
+});
 
 gulp.task('pack-js', function() {
     return gulp.src(['./js/**/*.js'])
@@ -74,17 +61,9 @@ gulp.task('pack-html', function() {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('inject-url', function() {
-    return gulp.src(['./dist/js/main.js'])
-        .pipe(header("var CUSTOMER_URL = '" + argv.c + "';"))
-        .pipe(header("var PAYMENT_URL = '" + argv.p + "';"))
-        .pipe(header("var ORDER_URL = '" + argv.o + "';"))
-        .pipe(gulp.dest('./dist/js/'));
-})
-
 gulp.task('clean', function() {
     return gulp.src('./dist', { read: false, allowEmpty: true })
         .pipe(clean());
 });
 
-gulp.task('bundle', gulp.series(['clean', 'sass', 'pack-js', 'inject-url', 'pack-css', 'pack-html'], gulp.parallel(['serve', 'server'])))
+gulp.task('bundle', gulp.series(['clean', 'sass', 'pack-js', 'pack-css', 'pack-html', 'nodemon']))
