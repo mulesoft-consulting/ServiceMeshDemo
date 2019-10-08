@@ -15,4 +15,5 @@ EXPOSE 3000
 RUN npm install -g gulp
 
 VOLUME ["/app"]
+
 CMD ["gulp", "bundle"]

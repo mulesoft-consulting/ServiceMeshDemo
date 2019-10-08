@@ -1,0 +1,12 @@
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceInstance
+metadata:
+  name: <replace_with_namespace>-adapter
+  namespace: <replace_with_namespace>
+spec:
+  clusterServiceClassExternalName: anypoint-service-mesh-adapter
+  clusterServicePlanExternalName: medium
+  parameters:
+    platformUri: <replace_with_platformUri>
+    clientId: <replace_with_clientId>
+    clientSecret: <replace_with_clientSecret>

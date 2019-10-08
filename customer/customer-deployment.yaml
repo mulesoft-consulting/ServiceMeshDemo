@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: customer-app
-        image: docker.io/dfoley3118/customer-app:latest
+        image: docker.io/<replace_with_dockerhub_account>/customer-app:latest
         ports:
         - containerPort: 8080
 ---
