@@ -22,16 +22,14 @@ apiVersion: v1
 kind: Service
 metadata:
   name: customer-service
+  labels:
+    run: customer-app
 spec:
   ports:
   - port: 8080
     protocol: TCP
-    targetPort: 8080
   selector:
     run: customer-app
-  type: LoadBalancer
-status:
-  loadBalancer: {}
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -57,16 +55,14 @@ apiVersion: v1
 kind: Service
 metadata:
   name: order-service
+  labels:
+    run: order-app
 spec:
   ports:
   - port: 8080
     protocol: TCP
-    targetPort: 8080
   selector:
     run: order-app
-  type: LoadBalancer
-status:
-  loadBalancer: {}
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -92,16 +88,14 @@ apiVersion: v1
 kind: Service
 metadata:
   name: payment-service
+  labels:
+    run: payment-app
 spec:
   ports:
   - port: 8080
     protocol: TCP
-    targetPort: 8080
   selector:
     run: payment-app
-  type: LoadBalancer
-status:
-  loadBalancer: {}
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -127,16 +121,14 @@ apiVersion: v1
 kind: Service
 metadata:
   name: inventory-service
+  labels:
+    run: inventory-app
 spec:
   ports:
   - port: 8080
     protocol: TCP
-    targetPort: 8080
   selector:
     run: inventory-app
-  type: LoadBalancer
-status:
-  loadBalancer: {}
 ---
 apiVersion: apps/v1
 kind: Deployment
