@@ -83,7 +83,6 @@ app.controller('CartListCtrl', function($scope, $http, cartService) {
         cartService.placeOrder()
             .then((order) => {
                 $scope.orderStatus = order.status == 200 ? true : false;
-                console.log(order);
                 if ($scope.orderStatus) {
                     setTimeout(function() {
                         window.location.href = "#/confirmation";
@@ -160,7 +159,6 @@ app.controller('ReserveCtrl', function($scope, $http, cartService, productServic
 
     $scope.submit = function() {
         cartService.addToCart(product);
-        console.log(cartService.retrieveCart());
 
         $cart = cartService.retrieveCart();
         var qty = 0;
@@ -169,7 +167,6 @@ app.controller('ReserveCtrl', function($scope, $http, cartService, productServic
             $cart.forEach(function(prod) {
                 if (prod && prod.productCode == product.productCode) {
                     qty = prod.quantity;
-                    console.log(qty);
                 }
             })
         }
@@ -279,7 +276,6 @@ app.controller('AccountCtrl', function($scope, userService, orderService) {
         if (card && card.name && card.number && card.month && card.year && card.cvv) {
             userService.getPayment(card.name, card.number, card.month, card.year, card.cvv)
                 .then((payment) => {
-                    console.log('payment status', payment)
                     $scope.payStatus = payment.status == 200 ? true : false;
 
                     if ($scope.payStatus) {
@@ -332,8 +328,6 @@ app.controller('OrderCtrl', function($scope, $http, orderService, userService) {
     $scope.country = user.country;
     $scope.email = user.email;
 
-    console.log($scope.email);
-
     var total = 0;
 
     $scope.itemsInOrder.forEach(function(obj) {
@@ -345,7 +339,6 @@ app.controller('OrderCtrl', function($scope, $http, orderService, userService) {
 
 app.controller('OrderCartCtrl', function($scope, cartService, orderService) {
     $scope.init = function(object) {
-        console.log(object);
         $scope.count = object.count;
         $scope.description = object.description;
         $scope.size = object.size;

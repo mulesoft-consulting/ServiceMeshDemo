@@ -128,8 +128,6 @@
                     // status: 404
 
                 }
-                console.log('placed order ', order);
-
                 return order;
             })
         }
@@ -201,7 +199,6 @@
                 method: "GET",
                 dataType: "json"
             }).then(function(resp) {
-                console.log('resp is', resp);
                 var user = {
                     id: resp.data.id,
                     name: resp.data.name,
