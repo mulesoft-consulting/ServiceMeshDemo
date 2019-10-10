@@ -26,7 +26,8 @@ metadata:
     run: customer-app
 spec:
   ports:
-  - port: 8080
+  - name: http
+    port: 8080
     protocol: TCP
   selector:
     run: customer-app
@@ -59,7 +60,8 @@ metadata:
     run: order-app
 spec:
   ports:
-  - port: 8080
+  - name: http
+    port: 8080
     protocol: TCP
   selector:
     run: order-app
@@ -92,7 +94,8 @@ metadata:
     run: payment-app
 spec:
   ports:
-  - port: 8080
+  - name: http
+    port: 8080
     protocol: TCP
   selector:
     run: payment-app
@@ -125,7 +128,8 @@ metadata:
     run: inventory-app
 spec:
   ports:
-  - port: 8080
+  - name: http
+    port: 8080
     protocol: TCP
   selector:
     run: inventory-app
