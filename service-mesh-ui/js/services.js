@@ -112,6 +112,7 @@
                     "quantity": 4
                 }]
             };
+            var order = {};
 
             return $http({
                 url: "/orders",
@@ -119,15 +120,24 @@
                 contentType: 'application/json',
                 data: JSON.stringify(postBody)
             }).then(function(resp) {
-                var order = {
+                order = {
                     id: resp.data.identifier,
                     orderStatus: resp.data.status,
                     message: resp.data.message,
                     status: resp.status
-                    // FAILURE SCENARIO - ORDER
-                    // status: 404
+                }
+                console.log('Place order call successful')
+                return order;
+            }, function(err) {
+                order = {
+                    id: "",
+                    orderStatus: "",
+                    status: err.status,
+                    error: err.statusText,
+                    message: err.data
 
                 }
+                console.log(`Place order call failed. Status: ${order.status}, Error: ${order.error}, Message: ${order.message}`);
                 return order;
             })
         }
@@ -182,24 +192,36 @@
                 contentType: 'application/json',
                 data: JSON.stringify(postBody)
             }).then(function(resp) {
-                var payment = {
+                var payment = {};
+                payment = {
                     id: resp.data.id,
                     payStatus: resp.data.status,
                     status: resp.status
-                    // FAILURE SCENARIO - PAYMENT
-                    // status: 404
                 }
+                console.log('Get payment call successful')
+
                 return payment;
+            }, function(err) {
+                payment = {
+                    id: "",
+                    payStatus: "",
+                    status: err.status,
+                    error: err.statusText,
+                    message: err.data
+                }
+                console.log(`Get payment call failed. Status: ${payment.status}, Error: ${payment.error}, Message: ${payment.message}`);
+                return payment
             })
         }
 
         var getUserFromSalesforce = function(email) {
+            var user = {};
             return $http({
                 url: "/customers/1",
                 method: "GET",
                 dataType: "json"
             }).then(function(resp) {
-                var user = {
+                user = {
                     id: resp.data.id,
                     name: resp.data.name,
                     email: resp.data.email,
@@ -210,10 +232,26 @@
                     postalCode: resp.data.shippingAddress.postalCode,
                     country: resp.data.shippingAddress.country,
                     status: resp.status
-                    // FAILURE SCENARIO - ACCOUNT
-                    // status: 404
-
                 }
+                console.log('Get User call successful')
+                setCurrentUser(user);
+                return user;
+            }, function(err) {
+                user = {
+                    id: "",
+                    name: "",
+                    email: "",
+                    phone: "",
+                    address1: "",
+                    city: "",
+                    stateOrProvince: "",
+                    postalCode: "",
+                    country: "",
+                    status: err.status,
+                    error: err.statusText,
+                    message: err.data
+                }
+                console.log(`Get user call failed. Status: ${user.status}, Error: ${user.error}, Message: ${user.message}`);
                 setCurrentUser(user);
                 return user;
             })
