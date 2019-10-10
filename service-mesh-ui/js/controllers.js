@@ -3,17 +3,6 @@
  **/
 app.controller('ProductListCtrl', function($scope, $http, cartService) {
     $scope.products = [
-        /*{
-                    "productCode": "4102",
-                    "size": "L",
-                    "description": "Imperial Mule",
-                    "count": "2",
-                    "quantity": "1",
-                    "imgUrl": "https://cdn.shopify.com/s/files/1/1003/3202/products/imperial_mule_grey_1024x1024.jpg",
-                    "msrp": "22.99",
-                    "countryOfOrigin": "China",
-                    "addlDesc": "The unisex T-shirt everyone will be wearing this season. In an extra-soft and luxurious cotton-linen blend, fits loosely through the body for an on-trend look. Features a classic crew neck and an undone asymmetrical hem."
-                },*/
         {
             "productCode": "1412",
             "size": "L",
@@ -59,9 +48,6 @@ app.controller('ProductListCtrl', function($scope, $http, cartService) {
             "addlDesc": "A heathered knit tee featuring a crew neck and short sleeves."
         }
     ]
-
-
-    // $scope.itemsInCart = cartService.retrieveCart();
 });
 
 app.controller('CartListCtrl', function($scope, $http, cartService) {
@@ -193,12 +179,6 @@ app.controller('ReserveCtrl', function($scope, $http, cartService, productServic
  **/
 app.controller('AccountCtrl', function($scope, userService, orderService) {
 
-    // $("#email").keydown(function() {
-    //     $scope.$apply(function() {
-    //         $scope.guMessage = "";
-    //     });
-    // });
-
     $("#editBtn").click(function() {
         $("#account-info form input").removeAttr('disabled');
         $("#account-info form input")[0].focus();
@@ -206,18 +186,7 @@ app.controller('AccountCtrl', function($scope, userService, orderService) {
         $("#updateBtn").show();
     });
 
-    // $("#retrieveAct, #createAct").click(function() {
-    //     $scope.$apply(function() {
-    //         $scope.crMessage = "";
-    //         $scope.guMessage = "";
-    //     });
-    // });
-
     $("#edit-email-link").click(function() {
-        // $scope.$apply(function() {
-        //     $scope.crMessage = "";
-        //     $scope.guMessage = "";
-        // });
         $("#retrieve-form").show();
         $("#edit-email").hide();
         $("#edit-account").hide();
