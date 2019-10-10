@@ -4,13 +4,14 @@
 NAMESPACE=nto-payment
 # Create the Istio adapter if it doesn’t exist:
 #
-if kubectl get namespace | grep -q '$NAMESPACE'; then
+kubectl get ns "$NAMESPACE" > /dev/null && {
   echo "$NAMESPACE already exists ..."
-else
+} || {
   echo "Create namespace $NAMESPACE ..."
   kubectl create namespace $NAMESPACE
+  kubectl label ns $NAMESPACE istio-injection=enabled
   #kubectl create -f namespace-nto-payment.json
-fi
+}
 
 #
 # Set current namespace
