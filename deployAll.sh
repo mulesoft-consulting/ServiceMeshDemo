@@ -1,7 +1,13 @@
 #!/bin/bash
 #
 #
-NAMESPACE=nto-payment
+default="nto-payment"
+read -p "Enter your new/existing Kubernetes namespace [default=$default]: " nsvar
+: ${nsvar:=$default}
+echo "Your new/existing Kubernetes namespace: $nsvar"
+
+NAMESPACE=$nsvar
+
 # Create the Istio adapter if it doesn’t exist:
 #
 kubectl get ns "$NAMESPACE" > /dev/null && {
