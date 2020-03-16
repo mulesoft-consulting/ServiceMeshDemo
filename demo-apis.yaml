@@ -20,6 +20,8 @@ spec:
       - nto-payment
     user: <USER>
     password: <PASSWORD>
+---
+apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceInstance
 metadata:
   name: inventory-api
@@ -41,6 +43,8 @@ spec:
       - nto-payment
     user: <USER>
     password: <PASSWORD>
+---
+apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceInstance
 metadata:
   name: order-api
@@ -62,6 +66,8 @@ spec:
       - nto-payment
     user: <USER>
     password: <PASSWORD>
+---
+apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceInstance
 metadata:
   name: payment-api

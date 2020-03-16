@@ -12,6 +12,8 @@ spec:
   parameters:
     adapter: nto-payment-service-mesh-adapter
     service: customer-service
+---
+apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceBinding
 metadata:
   # name will be used as resulting secret name if no secretName is specified under the spec section
@@ -25,6 +27,8 @@ spec:
   parameters:
     adapter: nto-payment-service-mesh-adapter
     service: inventory-service
+---
+apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceBinding
 metadata:
   # name will be used as resulting secret name if no secretName is specified under the spec section
@@ -38,6 +42,8 @@ spec:
   parameters:
     adapter: nto-payment-service-mesh-adapter
     service: order-service
+---
+apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceBinding
 metadata:
   # name will be used as resulting secret name if no secretName is specified under the spec section
