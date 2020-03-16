@@ -1,0 +1,85 @@
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceInstance
+metadata:
+  name: customer-api
+  namespace: nto-payment
+  labels:
+    service-mesh.mulesoft.com/kind: api
+spec:
+  clusterServiceClassExternalName: anypoint-platform-api-instance
+  clusterServicePlanExternalName: service-mesh
+  parameters:
+    environmentId: <ENV ID>
+    assetId: customer-api
+    version: 1.0.0
+    instanceLabel: public
+    tags:
+      apiSpec:
+      - nto-payment
+      apiInstance:
+      - nto-payment
+    user: <USER>
+    password: <PASSWORD>
+kind: ServiceInstance
+metadata:
+  name: inventory-api
+  namespace: nto-payment
+  labels:
+    service-mesh.mulesoft.com/kind: api
+spec:
+  clusterServiceClassExternalName: anypoint-platform-api-instance
+  clusterServicePlanExternalName: service-mesh
+  parameters:
+    environmentId: <ENV ID>
+    assetId: inventory-api
+    version: 1.0.0
+    instanceLabel: public
+    tags:
+      apiSpec:
+      - nto-payment
+      apiInstance:
+      - nto-payment
+    user: <USER>
+    password: <PASSWORD>
+kind: ServiceInstance
+metadata:
+  name: order-api
+  namespace: nto-payment
+  labels:
+    service-mesh.mulesoft.com/kind: api
+spec:
+  clusterServiceClassExternalName: anypoint-platform-api-instance
+  clusterServicePlanExternalName: service-mesh
+  parameters:
+    environmentId: <ENV ID>
+    assetId: order-api
+    version: 1.0.0
+    instanceLabel: public
+    tags:
+      apiSpec:
+      - nto-payment
+      apiInstance:
+      - nto-payment
+    user: <USER>
+    password: <PASSWORD>
+kind: ServiceInstance
+metadata:
+  name: payment-api
+  namespace: nto-payment
+  labels:
+    service-mesh.mulesoft.com/kind: api
+spec:
+  clusterServiceClassExternalName: anypoint-platform-api-instance
+  clusterServicePlanExternalName: service-mesh
+  parameters:
+    environmentId: <ENV ID>
+    assetId: payment-api
+    version: 1.0.0
+    instanceLabel: public
+    tags:
+      apiSpec:
+      - nto-payment
+      apiInstance:
+      - nto-payment
+    user: <USER>
+    password: <PASSWORD>

@@ -1,0 +1,16 @@
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceInstance
+metadata:
+  name: nto-payment-service-mesh-adapter
+  namespace: nto-payment
+  labels:
+    service-mesh.mulesoft.com/kind: adapter
+spec:
+  clusterServiceClassExternalName: anypoint-service-mesh-adapter
+  clusterServicePlanExternalName: small
+  parameters:
+    clientId: <CLIENT ID>
+    clientSecret: <CLIENT SECRET>
+    platformUri: https://stgx.anypoint.mulesoft.com
+    replication:
+      replicas: 2
