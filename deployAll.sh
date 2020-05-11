@@ -33,5 +33,5 @@ kubectl config set-context --current --namespace=$NAMESPACE
 #
 # Deploy Service
 #
-echo "Deploy NTO Services ..."
+echo "Deploy Mythical Services ..."
 kubectl apply -f mythical-deployment.yaml
