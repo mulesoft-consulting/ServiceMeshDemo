@@ -1,12 +1,17 @@
 #!/bin/bash
 #
 #
-default="mythical-payment"
-read -p "Enter your new/existing Kubernetes namespace [default=$default]: " nsvar
-: ${nsvar:=$default}
-echo "Your new/existing Kubernetes namespace: $nsvar"
+if [ $# -eq 0 ]
+then
+  default="mythical-payment"
+  read -p "Enter your new/existing Kubernetes namespace [default=$default]: " nsvar
+  : ${nsvar:=$default}
+  echo "Your new/existing Kubernetes namespace: $nsvar"
 
-NAMESPACE=$nsvar
+  NAMESPACE=$nsvar
+else
+  NAMESPACE=$1
+fi
 
 # Create the Istio adapter if it doesn’t exist:
 #
