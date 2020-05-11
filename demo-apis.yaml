@@ -2,7 +2,7 @@ apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceInstance
 metadata:
   name: customer-api
-  namespace: nto-payment
+  namespace: mythical-payment
   labels:
     service-mesh.mulesoft.com/kind: api
 spec:
@@ -15,9 +15,9 @@ spec:
     instanceLabel: public
     tags:
       apiSpec:
-      - nto-payment
+      - mythical-payment
       apiInstance:
-      - nto-payment
+      - mythical-payment
     user: <USER>
     password: <PASSWORD>
 ---
@@ -25,7 +25,7 @@ apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceInstance
 metadata:
   name: inventory-api
-  namespace: nto-payment
+  namespace: mythical-payment
   labels:
     service-mesh.mulesoft.com/kind: api
 spec:
@@ -38,9 +38,9 @@ spec:
     instanceLabel: public
     tags:
       apiSpec:
-      - nto-payment
+      - mythical-payment
       apiInstance:
-      - nto-payment
+      - mythical-payment
     user: <USER>
     password: <PASSWORD>
 ---
@@ -48,7 +48,7 @@ apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceInstance
 metadata:
   name: order-api
-  namespace: nto-payment
+  namespace: mythical-payment
   labels:
     service-mesh.mulesoft.com/kind: api
 spec:
@@ -61,9 +61,9 @@ spec:
     instanceLabel: public
     tags:
       apiSpec:
-      - nto-payment
+      - mythical-payment
       apiInstance:
-      - nto-payment
+      - mythical-payment
     user: <USER>
     password: <PASSWORD>
 ---
@@ -71,7 +71,7 @@ apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceInstance
 metadata:
   name: payment-api
-  namespace: nto-payment
+  namespace: mythical-payment
   labels:
     service-mesh.mulesoft.com/kind: api
 spec:
@@ -84,8 +84,8 @@ spec:
     instanceLabel: public
     tags:
       apiSpec:
-      - nto-payment
+      - mythical-payment
       apiInstance:
-      - nto-payment
+      - mythical-payment
     user: <USER>
     password: <PASSWORD>

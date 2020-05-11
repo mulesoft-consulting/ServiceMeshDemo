@@ -1,5 +1,5 @@
 #
-# Test for each endpoint against services running in nto-payment namespace
+# Test for each endpoint against services running in mythical-payment namespace
 #
 echo "****"
 echo "**** Customer APIs"

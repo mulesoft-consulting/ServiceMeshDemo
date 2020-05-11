@@ -1,8 +1,8 @@
 apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceInstance
 metadata:
-  name: nto-payment-service-mesh-adapter
-  namespace: nto-payment
+  name: mythical-payment-service-mesh-adapter
+  namespace: mythical-payment
   labels:
     service-mesh.mulesoft.com/kind: adapter
 spec:
@@ -11,6 +11,6 @@ spec:
   parameters:
     clientId: <CLIENT ID>
     clientSecret: <CLIENT SECRET>
-    platformUri: https://stgx.anypoint.mulesoft.com
+    platformUri: https://anypoint.mulesoft.com
     replication:
       replicas: 2

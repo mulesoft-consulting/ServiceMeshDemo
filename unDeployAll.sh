@@ -1,1 +1,1 @@
-kubectl delete -f nto-deployment.yaml
+kubectl delete -f mythical-deployment.yaml
