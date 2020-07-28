@@ -1,8 +1,8 @@
 apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceInstance
 metadata:
-  name: customer-api
-  namespace: mythical-payment
+  name: asm-customer-api
+  namespace: <NAMESPACE>
   labels:
     service-mesh.mulesoft.com/kind: api
 spec:
@@ -24,8 +24,8 @@ spec:
 apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceInstance
 metadata:
-  name: inventory-api
-  namespace: mythical-payment
+  name: asm-inventory-api
+  namespace: <NAMESPACE>
   labels:
     service-mesh.mulesoft.com/kind: api
 spec:
@@ -47,8 +47,8 @@ spec:
 apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceInstance
 metadata:
-  name: order-api
-  namespace: mythical-payment
+  name: asm-order-api
+  namespace: <NAMESPACE>
   labels:
     service-mesh.mulesoft.com/kind: api
 spec:
@@ -70,8 +70,8 @@ spec:
 apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceInstance
 metadata:
-  name: payment-api
-  namespace: mythical-payment
+  name: asm-payment-api
+  namespace: <NAMESPACE>
   labels:
     service-mesh.mulesoft.com/kind: api
 spec:

@@ -3,12 +3,12 @@ kind: ServiceBinding
 metadata:
   # name will be used as resulting secret name if no secretName is specified under the spec section
   name: customer-api-binding
-  namespace: mythical-payment
+  namespace: <NAMESPACE>
   labels:
     service-mesh.mulesoft.com/kind: api-binding
 spec:
   instanceRef:
-    name: customer-api
+    name: asm-customer-api
   parameters:
     adapter: mythical-payment-service-mesh-adapter
     service: customer-service
@@ -18,12 +18,12 @@ kind: ServiceBinding
 metadata:
   # name will be used as resulting secret name if no secretName is specified under the spec section
   name: inventory-api-binding
-  namespace: mythical-payment
+  namespace: <NAMESPACE>
   labels:
     service-mesh.mulesoft.com/kind: api-binding
 spec:
   instanceRef:
-    name: inventory-api
+    name: asm-inventory-api
   parameters:
     adapter: mythical-payment-service-mesh-adapter
     service: inventory-service
@@ -33,12 +33,12 @@ kind: ServiceBinding
 metadata:
   # name will be used as resulting secret name if no secretName is specified under the spec section
   name: order-api-binding
-  namespace: mythical-payment
+  namespace: <NAMESPACE>
   labels:
     service-mesh.mulesoft.com/kind: api-binding
 spec:
   instanceRef:
-    name: order-api
+    name: asm-order-api
   parameters:
     adapter: mythical-payment-service-mesh-adapter
     service: order-service
@@ -48,12 +48,12 @@ kind: ServiceBinding
 metadata:
   # name will be used as resulting secret name if no secretName is specified under the spec section
   name: payment-api-binding
-  namespace: mythical-payment
+  namespace: <NAMESPACE>
   labels:
     service-mesh.mulesoft.com/kind: api-binding
 spec:
   instanceRef:
-    name: payment-api
+    name: asm-payment-api
   parameters:
     adapter: mythical-payment-service-mesh-adapter
     service: payment-service

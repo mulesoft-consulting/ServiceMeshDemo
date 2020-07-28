@@ -2,7 +2,7 @@ apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceInstance
 metadata:
   name: mythical-payment-service-mesh-adapter
-  namespace: mythical-payment
+  namespace: <NAMESPACE>
   labels:
     service-mesh.mulesoft.com/kind: adapter
 spec:
