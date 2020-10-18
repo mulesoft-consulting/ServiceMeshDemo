@@ -18,8 +18,8 @@ spec:
       - nto-payment
       apiInstance:
       - nto-payment
-    user: <USER>
-    password: <PASSWORD>
+    clientId: <CLIENT ID>
+    clientSecret: <CLIENT SECRET>
 ---
 apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceInstance
@@ -41,8 +41,8 @@ spec:
       - nto-payment
       apiInstance:
       - nto-payment
-    user: <USER>
-    password: <PASSWORD>
+    clientId: <CLIENT ID>
+    clientSecret: <CLIENT SECRET>
 ---
 apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceInstance
@@ -64,8 +64,8 @@ spec:
       - nto-payment
       apiInstance:
       - nto-payment
-    user: <USER>
-    password: <PASSWORD>
+    clientId: <CLIENT ID>
+    clientSecret: <CLIENT SECRET>
 ---
 apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceInstance
@@ -87,5 +87,5 @@ spec:
       - nto-payment
       apiInstance:
       - nto-payment
-    user: <USER>
-    password: <PASSWORD>
+    clientId: <CLIENT ID>
+    clientSecret: <CLIENT SECRET>
