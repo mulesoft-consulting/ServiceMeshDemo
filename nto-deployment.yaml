@@ -150,7 +150,7 @@ spec:
     spec:
       containers:
       - name: service-mesh-ui
-        image: docker.io/dfoley3118/service-mesh-ui:latest
+        image: docker.io/dfoley3118/service-mesh-ui:working
         ports:
         - containerPort: 3000
 ---
